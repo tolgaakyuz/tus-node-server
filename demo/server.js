@@ -6,6 +6,7 @@ const fs = require('fs');
 const Server = require('../index').Server;
 const FileStore = require('../index').FileStore;
 const GCSDataStore = require('../index').GCSDataStore;
+const S3DataStore = require('../index').S3DataStore;
 const EVENTS = require('../index').EVENTS;
 
 const server = new Server();
@@ -19,6 +20,14 @@ switch (data_store) {
             projectId: 'vimeo-open-source',
             keyFilename: path.resolve(__dirname, '../keyfile.json'),
             bucket: 'tus-node-server',
+        });
+        break;
+
+    case 'S3DataStore':
+        server.datastore = new S3DataStore({
+            path: '/files',
+            profile: process.env.AWS_PROFILE || 'tus-node-profile',
+            bucket: process.env.AWS_BUCKET || 'tus-node-server',
         });
         break;
 

@@ -53,10 +53,13 @@
     "tus-js-client": "^1.1.4"
   },
   "dependencies": {
+    "aws-sdk": "^2.9.0",
+    "bluebird": "^3.4.7",
     "configstore": "^2.0.0",
     "crypto-rand": "0.0.2",
     "google-auto-auth": "^0.2.4",
     "google-cloud": "^0.38.3",
+    "lodash": "^4.17.4",
     "object-assign": "^4.1.0",
     "request": "^2.72.0"
   }
